@@ -8,22 +8,22 @@ def submenu_opciones():
               3.
               4.
               ''')
-        opcion_main = input('Ingrese opción: ')
+        opcion_sub = input('Ingrese opción: ')
 
-        if opcion_main == '1':
+        if opcion_sub == '1':
             print()
-        elif opcion_main == '2':
+        elif opcion_sub == '2':
             print()
-        elif opcion_main == '4':
+        elif opcion_sub == '4':
             salir_submenu = True
         else:
-            print('Opción inválida.')
+            print('\nOpción inválida, intente nuevamente.')
 
 def main_menu():
     salir_main = False
     while not salir_main:
         print('''
-              --- SUBMENU ---
+              --- MAIN MENU ---
               1.
               2.
               3.
@@ -32,14 +32,14 @@ def main_menu():
         opcion_main = input('Ingrese una opcion: ')
         
         if opcion_main == '1':
-            print()
+            submenu_opciones()
         elif opcion_main == '2':
             print()
         elif opcion_main == '4':
             salir_main = True
         else:
-            print('Opción inválida.')
+            print('\nOpción inválida, intente nuevamente.')
 
-# Hace de punto de partida, señalando que inicie desde la funcion indentada
+# Hace de punto de partida, señalando que inicie desde la funcion deseada
 if __name__ == '__main__':
     main_menu()
