@@ -1,19 +1,22 @@
 products = []
 
+# Checks if value is an integer, raise error if not and asks till a valid value is entered.
 def getInt():
     try:
         return int(input('> '))
     except ValueError:
         print('Invalid value, try again.')
         return getInt()
-    
+
+# Checks if value is a float, raise error if not and asks till a valid value is entered.
 def getFloat():
     try:
         return float(input('> '))
     except ValueError:
         print('Invalid value, try again.')
         return getFloat()
-    
+
+# Asks name, price and quantity then adds to an element in the main dicctionary.
 def addProduct():
     
     name = input('Product name \n> ')
@@ -26,6 +29,7 @@ def addProduct():
     products.append(new_product)
     print('Added successfully.')
 
+# Shows every product added, or 'currenty empty' if dicctionary is empty.
 def listProducts():
     if len(products) == 0:
         print('Inventory currently empty.')
@@ -34,12 +38,15 @@ def listProducts():
     for product in products:
         print(f'Name: {product['name']} | Price: {product['price']} | Quantity: {product['quantity']}')
 
+# Calculates simple stadistics among products
 def stadistics():
     if len(products) == 0:
         print('Inventory currently empty.')
         return
     
     choice = input('What do you want to do? \n1. Check total inventory \n2. Calculate total inventory value \n> ') 
+    
+    # Shows every item quantity and a total stock.
     if choice == '1':
         total_quantity = 0
         for product in products:
@@ -47,6 +54,7 @@ def stadistics():
             total_quantity += product['quantity']
         print(f'Total inventory quantity: {total_quantity}')
 
+    # Calculates every item total value and inventory worth.
     elif choice == '2':
         total_value = 0
         for product in products:
@@ -59,6 +67,7 @@ def stadistics():
         print('Invalid choice, try again.')
         stadistics()
 
+# Shows menu, asking for an option.
 def main_menu():
     print('''
         --< Inventory Management >--
@@ -82,4 +91,5 @@ def main_menu():
     if choice != '4':
         main_menu()
 
+# Runs code.
 main_menu()
